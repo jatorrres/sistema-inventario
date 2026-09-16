@@ -31,7 +31,7 @@ public class HomeController {
     }
 
     // Ruta para la vista de productos (Productos.html)
-    @GetMapping({"/productos-vista", "/productos.html"})
+    @GetMapping({"/productos-vista", "/Productos.html"})
     public String verProductosVista() {
         return "Productos"; // Busca Productos.html en la carpeta templates
     }
