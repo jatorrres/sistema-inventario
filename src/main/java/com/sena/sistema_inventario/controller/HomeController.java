@@ -17,29 +17,28 @@ public class HomeController {
         this.service = service;
     }
 
+    // Ruta para la página principal
     @GetMapping({"/", "/index", "/index.html"})
     public String verPaginaDeInicio(Model model) {
         List<Producto> listaProductos = service.listarProductos();
 
-        long totalProductos = listaProductos.size();
-        
-        long disponibles = listaProductos.stream()
-                .filter(p -> p.getCantidad() > 0)
-                .count();
-                
-        long agotados = listaProductos.stream()
-                .filter(p -> p.getCantidad() == 0)
-                .count();
-
-        List<Producto> ultimosProductos = listaProductos.size() > 3 
-                ? listaProductos.subList(listaProductos.size() - 3, listaProductos.size()) 
-                : listaProductos;
-
-        model.addAttribute("totalProductos", totalProductos);
-        model.addAttribute("disponibles", disponibles);
-        model.addAttribute("agotados", agotados);
-        model.addAttribute("ultimosProductos", ultimosProductos);
+        model.addAttribute("totalProductos", listaProductos.size());
+        model.addAttribute("disponibles", listaProductos.stream().filter(p -> p.getCantidad() > 0).count());
+        model.addAttribute("agotados", listaProductos.stream().filter(p -> p.getCantidad() == 0).count());
+        model.addAttribute("ultimosProductos", listaProductos);
 
         return "index"; 
+    }
+
+    // Ruta para la vista de productos (Productos.html)
+    @GetMapping({"/productos-vista", "/productos.html"})
+    public String verProductosVista() {
+        return "Productos"; // Busca Productos.html en la carpeta templates
+    }
+
+    // Ruta para el formulario de registro (registrar.html)
+    @GetMapping({"/registrar", "/registrar.html"})
+    public String verRegistrarVista() {
+        return "registrar"; // Busca registrar.html en la carpeta templates
     }
 }
