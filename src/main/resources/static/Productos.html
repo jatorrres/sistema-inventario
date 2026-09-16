@@ -24,7 +24,6 @@
                 <ul class="navbar-nav nav-fill w-100">
                     <li class="nav-item"><a class="nav-link text-white active" href="Productos.html">Productos</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="registrar.html">Registrar Producto</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="Contacto.html">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -63,7 +62,7 @@
                 <h4 class="mb-0">
                     Valor total del inventario: <span id="totalInventario" class="text-primary fw-bold">$0</span>
                 </h4>
-                <a href="http://localhost:8080/pdf" target="_blank" class="btn btn-danger mb-3">Generar Reporte PDF</a>           </div>
+                <a th:href="@{/pdf}" target="_blank" class="btn btn-danger mb-3">Generar Reporte PDF</a>
         </section>
     </main>
 

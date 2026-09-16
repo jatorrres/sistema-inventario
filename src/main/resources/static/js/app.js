@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/productos";
+const API_URL = "/productos";
 
 async function cargarProductos() {
     const tabla = document.getElementById("tablaProductos");
