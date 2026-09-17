@@ -17,7 +17,6 @@ public class HomeController {
         this.service = service;
     }
 
-    // Ruta para la página principal
     @GetMapping({"/", "/index", "/index.html"})
     public String verPaginaDeInicio(Model model) {
         List<Producto> listaProductos = service.listarProductos();
@@ -30,15 +29,14 @@ public class HomeController {
         return "index"; 
     }
 
-    // Ruta para la vista de productos (Productos.html)
+
     @GetMapping({"/productos-vista", "/Productos.html"})
     public String verProductosVista() {
-        return "Productos"; // Busca Productos.html en la carpeta templates
+        return "Productos"; 
     }
 
-    // Ruta para el formulario de registro (registrar.html)
     @GetMapping({"/registrar", "/registrar.html"})
     public String verRegistrarVista() {
-        return "registrar"; // Busca registrar.html en la carpeta templates
+        return "registrar"; 
     }
 }
